@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: apache-app
+  namespace: own-img
+  labels:
+    app: apache
+spec:
+  selector:
+    matchLabels:
+      app: apache
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+      - name: own-img
+        image: 219412296651.dkr.ecr.ap-south-1.amazonaws.com/own-image
+        ports:
+        - containerPort: 80

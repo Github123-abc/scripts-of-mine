@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: apache-service
+  namespace: own-img
+spec:
+  selector:
+    app: apache
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

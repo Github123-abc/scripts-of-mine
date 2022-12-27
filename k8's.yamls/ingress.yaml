@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: deploy-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: auto.mybond.xyz
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: apache-service
+          servicePort: 80
